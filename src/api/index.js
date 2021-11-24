@@ -19,8 +19,7 @@ export function findHeroeByID(value) {
   return axios
     .get(API_URL_BY_ID + value)
     .then((res) => {
-      const { results } = res.data;
-      return results;
+      return res.data;
     })
     .catch((err) => {
       //   console.log(err);

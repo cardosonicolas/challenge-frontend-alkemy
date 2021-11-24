@@ -6,18 +6,37 @@ const Layout = ({ children }) => {
     <Container fluid>
       <Navbar collapseOnSelect expand="sm">
         <Container>
-          <Navbar.Brand href="#">SuperHero</Navbar.Brand>
+          <Navbar.Brand>
+            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
+              SuperHero
+            </Link>
+          </Navbar.Brand>
           <Navbar.Toggle arial-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="flex-grow-0">
             <Nav>
               <Nav.Link>
-                <Link to="/">Home</Link>
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to="/"
+                >
+                  Home
+                </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/team">Team</Link>
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to="/team"
+                >
+                  Team
+                </Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/login">Login</Link>
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to="/login"
+                >
+                  Login
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

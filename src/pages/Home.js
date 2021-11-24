@@ -1,5 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import Heroe from "../components/Heroe";
+import { Link } from "react-router-dom";
 
 const Home = ({ handleChangeValue, heroes, addToTeam }) => {
   return (
@@ -9,15 +10,20 @@ const Home = ({ handleChangeValue, heroes, addToTeam }) => {
         {heroes
           ? heroes.map(({ image, name, biography, id }) => (
               <Col className="my-2">
-                <Heroe
-                  onClick={addToTeam}
-                  id={id}
-                  image={image}
-                  name={name}
-                  biography={biography}
-                  key={id}
-                  buttonText={"Add"}
-                />
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to={`/${id}`}
+                >
+                  <Heroe
+                    onClick={addToTeam}
+                    id={id}
+                    image={image}
+                    name={name}
+                    biography={biography}
+                    key={id}
+                    buttonText={"Add"}
+                  />
+                </Link>
               </Col>
             ))
           : null}
