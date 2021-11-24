@@ -6,24 +6,24 @@ export function useTeam(heroes) {
   const [team, setTeam] = useState([]);
 
   const addToTeam = (id) => {
-    const alignments = team.reduce((acc, heroe) => {
-      acc[heroe.biography.alignment] =
-        (acc[heroe.biography.alignment] || 0) + 1;
+    const alignments = team.reduce((acc, hero) => {
+      acc[hero.biography.alignment] = (acc[hero.biography.alignment] || 0) + 1;
       return acc;
     }, {});
+
     const { good, bad } = alignments;
-    if (good >= 3) return "No puedes mas buenos";
-    if (bad >= 3) return "No puedes mas malos";
+    if (good >= 3) return "No puedes agregar mas personajes buenos";
+    if (bad >= 3) return "No puedes agregar mas personajes malos";
 
-    const heroe = heroes.find((heroe) => heroe.id === id);
+    const hero = heroes.find((hero) => hero.id === id);
     if (team.length === MAXIMUM_MEMBERS) return "Team completo";
-    if (team.find((heroe) => heroe.id === id)) return "Ya esta en el equipo";
+    if (team.find((hero) => hero.id === id)) return "Ya esta en el equipo";
 
-    setTeam([...team, heroe]);
+    setTeam([...team, hero]);
   };
 
   const deleteFromTeam = (id) => {
-    const updatedTeam = team.filter((heroe) => heroe.id !== id);
+    const updatedTeam = team.filter((hero) => hero.id !== id);
     setTeam(updatedTeam);
   };
 

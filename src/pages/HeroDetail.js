@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { Container, ListGroup, Image } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { findHeroeByID } from "../api";
+import { findHeroByID } from "../api";
 
-const HeroeDetail = () => {
-  const [heroe, setHeroe] = useState({});
+const HeroDetail = () => {
+  const [hero, setHero] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    findHeroeByID(id).then((res) => {
-      console.log(res);
-      setHeroe(res);
+    findHeroByID(id).then((res) => {
+      setHero(res);
     });
   }, [id]);
 
-  const { name, appearance, biography, work, image } = heroe;
+  const { name, appearance, biography, work, image } = hero;
 
   return (
     <Container className="m-0 p-0 w-100">
@@ -46,4 +45,4 @@ const HeroeDetail = () => {
   );
 };
 
-export default HeroeDetail;
+export default HeroDetail;

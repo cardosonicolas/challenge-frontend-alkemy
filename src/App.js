@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useSearchHeroes } from "./hooks/useSearchHeroes";
 import { useTeam } from "./hooks/useTeam";
 import Home from "./pages/Home";
-import HeroeDetail from "./pages/HeroeDetail";
+import HeroDetail from "./pages/HeroDetail";
 import HeroesTeam from "./components/HeroesTeam";
 import Layout from "./components/Layout";
+import "./App.css";
 
 function App() {
   const { heroes, handleChangeValue } = useSearchHeroes();
@@ -32,7 +33,7 @@ function App() {
             path="/team"
             element={<HeroesTeam team={team} deleteFromTeam={deleteFromTeam} />}
           />
-          <Route exect path="/:id" element={<HeroeDetail />} />
+          <Route exect path="/:id" element={<HeroDetail />} />
         </Routes>
       </Layout>
     </Router>

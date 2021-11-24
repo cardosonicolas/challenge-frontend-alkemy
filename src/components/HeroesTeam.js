@@ -1,5 +1,5 @@
 import { Row, Col } from "react-bootstrap";
-import Heroe from "./Heroe";
+import Hero from "./Hero";
 
 const HeroesTeam = ({ team, deleteFromTeam }) => {
   return (
@@ -8,14 +8,14 @@ const HeroesTeam = ({ team, deleteFromTeam }) => {
         {team
           ? team.map(({ image, name, biography, id }) => (
               <Col className="my-2">
-                <Heroe
-                  onClick={deleteFromTeam}
+                <Hero
+                  key={id}
                   id={id}
                   image={image}
                   name={name}
                   biography={biography}
-                  key={id}
-                  buttonText={"Delete"}
+                  buttonText={"Delete from team"}
+                  onClick={deleteFromTeam}
                 />
               </Col>
             ))
