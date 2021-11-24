@@ -2,26 +2,14 @@
 
 import { Container, Row, Col } from "react-bootstrap";
 import { useHeroes } from "./hooks/useHeroes";
+import { useTeam } from "./hooks/useTeam";
 import { useState } from "react";
 import Heroe from "./components/Heroe";
+import HeroesTeam from "./components/HeroesTeam";
 
 function App() {
-  const MAXIMUM_MEMBERS = 6;
   const { heroes, handleChangeValue } = useHeroes();
-  const [team, setTeam] = useState([]);
-
-  const addToTeam = (id) => {
-    const heroe = heroes.find((heroe) => heroe.id === id);
-    if (team.length === MAXIMUM_MEMBERS) return "Team completo";
-    if (team.find((heroe) => heroe.id === id)) return "Ya esta en el equipo";
-
-    setTeam([...team, heroe]);
-  };
-
-  const deleteFromTeam = (id) => {
-    const updatedTeam = team.filter((heroe) => heroe.id !== id);
-    setTeam(updatedTeam);
-  };
+  const { team, addToTeam, deleteFromTeam } = useTeam(heroes);
 
   return (
     <>
@@ -45,25 +33,7 @@ function App() {
             : null}
         </Row>
       </Container>
-      <Container>
-        <Row xs={1} md={2} xl={3}>
-          {team
-            ? team.map(({ image, name, biography, id }) => (
-                <Col className="my-2">
-                  <Heroe
-                    onClick={deleteFromTeam}
-                    id={id}
-                    image={image}
-                    name={name}
-                    biography={biography}
-                    key={id}
-                    buttonText={"Delete"}
-                  />
-                </Col>
-              ))
-            : null}
-        </Row>
-      </Container>
+      <HeroesTeam team={team} deleteFromTeam={deleteFromTeam} />
     </>
   );
 }

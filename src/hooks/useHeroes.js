@@ -3,7 +3,7 @@ import { findHeroesByName } from "../api";
 
 export function useHeroes() {
   const [heroes, setHeroes] = useState();
-  const [value, setValue] = useState("batman");
+  const [value, setValue] = useState();
 
   const handleChangeValue = (e) => {
     setValue(e.target.value);
