@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { findHeroesByName } from "../api";
 
-export function useHeroes() {
+export function useSearchHeroes() {
   const [heroes, setHeroes] = useState();
   const [value, setValue] = useState();
 
