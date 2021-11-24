@@ -1,9 +1,9 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Heroe from "../components/Heroe";
 
 const Home = ({ handleChangeValue, heroes, addToTeam }) => {
   return (
-    <Container>
+    <>
       <input type="text" onChange={handleChangeValue} />
       <Row xs={1} md={2} xl={3}>
         {heroes
@@ -22,7 +22,7 @@ const Home = ({ handleChangeValue, heroes, addToTeam }) => {
             ))
           : null}
       </Row>
-    </Container>
+    </>
   );
 };
 
