@@ -1,35 +1,22 @@
-import { Link } from "react-router-dom";
-import { Row, Col, FormControl } from "react-bootstrap";
-import Hero from "../components/Hero";
+import HeroesTeam from "../components/HeroesTeam";
+import { ListGroup, Container } from "react-bootstrap";
 
-const Home = ({ handleChangeValue, heroes, addToTeam }) => {
+const Home = ({ team, deleteFromTeam, statistic }) => {
   return (
     <>
-      <FormControl
-        type="search"
-        placeholder="Search a hero (ej: Batman)"
-        className="me-2"
-        onChange={handleChangeValue}
-      />
-      <Row xs={1} md={2} xl={3}>
-        {heroes
-          ? heroes.map(({ image, name, biography, id }) => (
-              <Col className="my-2">
-                <Link to={`/${id}`}>
-                  <Hero
-                    key={id}
-                    id={id}
-                    image={image}
-                    name={name}
-                    biography={biography}
-                    buttonText={"Add to team"}
-                    onClick={addToTeam}
-                  />
-                </Link>
-              </Col>
-            ))
-          : null}
-      </Row>
+      <h1>My team</h1>
+      <Container className="justify-content-md-between w-100">
+        <HeroesTeam team={team} deleteFromTeam={deleteFromTeam} />
+        <ListGroup className="py-4 mx-auto col-md-5">
+          <h2>Stats:</h2>
+          {statistic.map((e) => (
+            <ListGroup.Item className="d-flex justify-content-between ">
+              <h5>{`${e[0].toUpperCase()}`}</h5>
+              <span>{`${e[1]}`}</span>
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      </Container>
     </>
   );
 };

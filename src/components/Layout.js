@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (
-    <Container fluid>
+    <Container fluid className="pb-5">
       <Navbar collapseOnSelect expand="sm">
         <Container>
           <Navbar.Brand>
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
                 <Link to="/">Home</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/team">Team</Link>
+                <Link to="/search">Search</Link>
               </Nav.Link>
               <Nav.Link>
                 <Link to="/login">Login</Link>

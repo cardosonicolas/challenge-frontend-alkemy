@@ -3,7 +3,7 @@ import { findHerosByName } from "../api";
 
 export function useSearchHeroes() {
   const [heroes, setHeroes] = useState();
-  const [value, setValue] = useState("bat");
+  const [value, setValue] = useState("batman");
 
   const handleChangeValue = (e) => {
     setValue(e.target.value);

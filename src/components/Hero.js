@@ -13,7 +13,7 @@ const Hero = ({ image, name, biography, onClick, id, buttonText }) => {
         <Card.Img
           src={url}
           alt={`${name} image`}
-          className={"border border-bottom-0 border-5 border-dark p-0 m-0"}
+          className={"border border-bottom-0 border-5 border-dark img-fluid"}
         />
         <Card.Title as={"h3"} className={`p-2 bg-dark text-${bg} w-100`}>
           {name}
