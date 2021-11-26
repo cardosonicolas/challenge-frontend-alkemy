@@ -6,7 +6,9 @@ import * as Yup from "yup";
 const Login = () => {
   const InitialValues = { email: "", password: "" };
   const Schema = {
-    email: Yup.string().email("Invalid email address").required("Required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("This field is required"),
     password: Yup.string().required("This field is required"),
   };
 
@@ -16,11 +18,11 @@ const Login = () => {
         email,
         password,
       })
-      .then(function (response) {
-        console.log(response);
+      .then(function ({ data }) {
+        window.localStorage.setItem(email, data.token);
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch(function (err) {
+        console.log(err);
       });
   };
 
@@ -63,7 +65,11 @@ const Login = () => {
                     {errors.password}
                   </Form.Text>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button
+                  className="w-100 btn-lg"
+                  variant="primary"
+                  type="submit"
+                >
                   Log in
                 </Button>
               </Form>
