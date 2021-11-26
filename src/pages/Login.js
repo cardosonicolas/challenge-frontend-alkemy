@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Formik } from "formik";
-import { Form, Button, Stack } from "react-bootstrap";
+import { Form, Button, Stack, Container } from "react-bootstrap";
 import * as Yup from "yup";
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <Container className="m-0 p-0">
       <Formik
         initialValues={InitialValues}
         validationSchema={Yup.object(Schema)}
@@ -77,7 +77,7 @@ const Login = () => {
           );
         }}
       </Formik>
-    </>
+    </Container>
   );
 };
 

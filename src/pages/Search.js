@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { Row, Col, FormControl } from "react-bootstrap";
+import { Row, Col, FormControl, Container } from "react-bootstrap";
 import Hero from "../components/Hero";
 
 const Search = ({ handleChangeValue, heroes, addToTeam }) => {
   return (
-    <>
+    <Container className="m-0 p-0">
       <FormControl
         type="search"
         placeholder="Search a hero (ej: Batman)"
-        className="me-2"
+        className="p-3"
         onChange={handleChangeValue}
       />
       <Row xs={1} md={2} xl={3}>
@@ -24,13 +24,14 @@ const Search = ({ handleChangeValue, heroes, addToTeam }) => {
                     biography={biography}
                     buttonText={"Add to team"}
                     onClick={addToTeam}
+                    bgColor="primary"
                   />
                 </Link>
               </Col>
             ))
           : null}
       </Row>
-    </>
+    </Container>
   );
 };
 

@@ -2,7 +2,7 @@ import { Card, Button } from "react-bootstrap";
 
 const backgroundColor = { good: "warning", bad: "danger", neutral: "light" };
 
-const Hero = ({ image, name, biography, onClick, id, buttonText }) => {
+const Hero = ({ image, name, biography, onClick, id, buttonText, bgColor }) => {
   const { url } = image;
   const { alignment } = biography;
   const bg = backgroundColor[alignment];
@@ -19,7 +19,7 @@ const Hero = ({ image, name, biography, onClick, id, buttonText }) => {
           {name}
         </Card.Title>
         <Button
-          className={`mt-1 w-100 border-0 btn-lg `}
+          className={`mt-1 w-100 border-0 btn-lg bg-${bgColor}`}
           onClick={(e) => {
             e.preventDefault();
             onClick(id);

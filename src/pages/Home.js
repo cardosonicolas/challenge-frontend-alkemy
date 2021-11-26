@@ -5,7 +5,7 @@ const Home = ({ team, deleteFromTeam, statistic }) => {
   return (
     <>
       <h1>My team</h1>
-      <Container className="justify-content-md-between w-100">
+      <Container className="justify-content-md-between w-100 m-0 p-0">
         <HeroesTeam team={team} deleteFromTeam={deleteFromTeam} />
         <ListGroup className="py-4 mx-auto col-md-5">
           <h2>Stats:</h2>
