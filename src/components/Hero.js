@@ -2,7 +2,7 @@ import { Card, Button } from "react-bootstrap";
 
 const backgroundColor = { good: "warning", bad: "danger", neutral: "light" };
 
-const Heroe = ({ image, name, biography, onClick, id, buttonText }) => {
+const Hero = ({ image, name, biography, onClick, id, buttonText }) => {
   const { url } = image;
   const { alignment } = biography;
   const bg = backgroundColor[alignment];
@@ -32,4 +32,4 @@ const Heroe = ({ image, name, biography, onClick, id, buttonText }) => {
   );
 };
 
-export default Heroe;
+export default Hero;

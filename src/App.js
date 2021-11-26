@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useSearchHeroes } from "./hooks/useSearchHeroes";
 import { useTeam } from "./hooks/useTeam";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import HeroDetail from "./pages/HeroDetail";
 import HeroesTeam from "./components/HeroesTeam";
 import Layout from "./components/Layout";
@@ -28,6 +29,7 @@ function App() {
               />
             }
           />
+          <Route exact path="/login" element={<Login />} />
           <Route
             exect
             path="/team"

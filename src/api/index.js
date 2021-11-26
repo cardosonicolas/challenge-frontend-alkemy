@@ -11,7 +11,7 @@ export function findHerosByName(value) {
       return results;
     })
     .catch((err) => {
-      //   console.log(err);
+      console.log(err);
     });
 }
 
@@ -22,6 +22,6 @@ export function findHeroByID(value) {
       return res.data;
     })
     .catch((err) => {
-      //   console.log(err);
+      console.log(err);
     });
 }

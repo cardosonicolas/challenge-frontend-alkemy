@@ -17,7 +17,13 @@ const HeroDetail = () => {
 
   return (
     <Container className="m-0 p-0 w-100">
-      <Image src={image && image.url} className="w-100" alt={`${name} image`} />
+      <Container>
+        <Image
+          src={image && image.url}
+          className="w-100"
+          alt={`${name} image`}
+        />
+      </Container>
       <ListGroup>
         <h1 className={`p-2 w-100 `}>{name}</h1>
         <ListGroup.Item>
