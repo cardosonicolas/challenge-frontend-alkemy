@@ -30,23 +30,31 @@ const HeroDetail = () => {
           className="img-fluid"
           alt={`${name} image`}
         />
-        <ListGroup className="p-md-5 mx-auto col-md-5">
+        <ListGroup className="py-4 mx-auto col-md-5">
           <h1 className={`p-2 w-100 `}>{name}</h1>
-          <ListGroup.Item>
-            Peso: {appearance && appearance.weight[1]}
+          <ListGroup.Item className="d-flex justify-content-between">
+            <h5>Peso: </h5>
+            <span>{appearance && appearance.weight[1]}</span>
+          </ListGroup.Item>
+          <ListGroup.Item className="d-flex justify-content-between">
+            <h5>Altura: </h5>
+            <span>{appearance && appearance.height[1]}</span>
+          </ListGroup.Item>
+          <ListGroup.Item className="d-flex justify-content-between">
+            <h5>Color de ojos:</h5>
+            <span> {appearance && appearance["eye-color"]}</span>
+          </ListGroup.Item>
+          <ListGroup.Item className="d-flex justify-content-between">
+            <h5> Color de cabello: </h5>
+            <span> {appearance && appearance["hair-color"]}</span>
           </ListGroup.Item>
           <ListGroup.Item>
-            Altura: {appearance && appearance.height[1]}
+            <h5>Lugar de trabajo: </h5>
+            <span> {work && work.base}</span>
           </ListGroup.Item>
           <ListGroup.Item>
-            Color de ojos: {appearance && appearance["eye-color"]}
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Color de cabello: {appearance && appearance["hair-color"]}
-          </ListGroup.Item>
-          <ListGroup.Item>Lugar de trabajo: {work && work.base}</ListGroup.Item>
-          <ListGroup.Item>
-            Alias:
+            <h5>Alias: </h5>
+
             {biography &&
               biography.aliases.map((e) => {
                 return ` ${e},`;

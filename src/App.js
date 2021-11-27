@@ -3,6 +3,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useSearchHeroes } from "./hooks/useSearchHeroes";
 import { useTeam } from "./hooks/useTeam";
+import { useAuth } from "./hooks/useAuth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
@@ -13,11 +14,13 @@ import "./App.css";
 function App() {
   const { heroes, handleChangeValue } = useSearchHeroes();
   const { team, addToTeam, deleteFromTeam, statistic } = useTeam(heroes);
+  const { logIn, logOut, isAuth } = useAuth();
 
   return (
     <Router>
       <Layout>
         <Routes>
+          <Route exact path="/login" element={<Login logIn={logIn} />} />
           <Route
             exact
             path="/"
@@ -29,7 +32,6 @@ function App() {
               />
             }
           />
-          <Route exact path="/login" element={<Login />} />
           <Route
             exect
             path="/search"

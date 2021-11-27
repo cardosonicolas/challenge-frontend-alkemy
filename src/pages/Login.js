@@ -1,9 +1,12 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { Form, Button, Stack, Container } from "react-bootstrap";
 import * as Yup from "yup";
 
-const Login = () => {
+const Login = ({ logIn }) => {
+  let navigate = useNavigate();
+
   const InitialValues = { email: "", password: "" };
   const Schema = {
     email: Yup.string()
@@ -19,7 +22,8 @@ const Login = () => {
         password,
       })
       .then(function ({ data }) {
-        window.localStorage.setItem(email, data.token);
+        logIn("token", data.token);
+        navigate("/");
       })
       .catch(function (err) {
         console.log(err);

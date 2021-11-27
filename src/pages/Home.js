@@ -10,7 +10,7 @@ const Home = ({ team, deleteFromTeam, statistic }) => {
         <ListGroup className="py-4 mx-auto col-md-5">
           <h2>Stats:</h2>
           {statistic.map((e) => (
-            <ListGroup.Item className="d-flex justify-content-between ">
+            <ListGroup.Item className="d-flex justify-content-between">
               <h5>{`${e[0].toUpperCase()}`}</h5>
               <span>{`${e[1]}`}</span>
             </ListGroup.Item>
